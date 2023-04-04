@@ -45,26 +45,26 @@ for(var i = 0; i <items.length;i++){
 }*/
 
  //  ASSIGNMENT //
-headerTitle.style.borderBottom = 'solid 3px #000';
+/*headerTitle.style.borderBottom = 'solid 3px #000';
 var title=document.getElementById('add');
 title.style.color='green';
-title.style.fontWeight = 'bold';
+title.style.fontWeight = 'bold';*/
 
 
      // ASSIGNMENT //
-var items = document.getElementsByClassName('list-group-item');
+/*var items = document.getElementsByClassName('list-group-item');
 items[2].style.backgroundColor="green";
 items[2].style.fontWeight='bold';
 
 
 for(var i = 0;i<items.length;i++){
     items[i].style.fontWeight='bold';
-}
+}*/
 
 
 //  ASSIGNMENT //
 
-var items = document.getElementsByClassName('list-group-item');
+/*var items = document.getElementsByClassName('list-group-item');
 for(var i = 0; i <items.length;i++){
     items[i].style.backgroundColor = 'orange';
 }
@@ -72,5 +72,43 @@ for(var i = 0; i <items.length;i++){
 var li = document.getElementsByTagName('li');
 for(var i = 0; i <li.length;i++){
     li[i].style.backgroundColor = 'orange';
+}*/
+
+//   QUERYSELECTOR //
+var header = document.querySelector('#main-header');
+header.style.borderBottom='solid 4px #ccc';
+
+var input = document.querySelector('input');
+input.value = 'Hello World';
+
+var submit = document.querySelector('input[type="submit"]');
+submit.value="SEND";
+
+var item = document.querySelector('.list-group-item');
+item.style.color = 'red';
+
+var lastItem = document.querySelector('.list-group-item:last-child');
+lastItem.style.color = 'blue';
+
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.color = 'coral';
+
+// QUERYSELECTORALL //
+var titles=document.querySelectorAll('.title');
+console.log(titles);
+titles[0].style.color= 'purple';
+
+var odd = document.querySelectorAll('li:nth-child(odd)');
+var even = document.querySelectorAll('li:nth-child(even)');
+for(var i=0;i<odd.length;i++){
+    odd[i].style.backgroundColor = '#f4f4f4';
 }
+
+for(var i=0;i<even.length;i++){
+    even[i].style.backgroundColor = '#ccc';
+}
+
+// ASSIGNMENT //
+
+secondItem.style.backgroundColor = 'green';
 
