@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <title>Item Lister</title>
 </head>
-<body style="background-image: url('data:image/jpeg;base64,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');background-repeat: no-repeat;height: 100%;background-size: cover;">
-    <form action='#' style="border-style:solid;border-color: orange;max-width: 500px;margin-left: 30%;"  onsubmit="details()">
-        <h1 style="text-align:center;color:orange;">Book a call</h1>
-        <h5 style="text-align:center;">Book a call slot and our representative will call you within 1hr of selected time.</h5>
-        <hr>
-        <label for="fname">Name:</label><br>
-        <input type="text" id="fname" name="fname" style="width: 99%;" ><br>
-        <label for="eemail">Email:</label><br>
-        <input type="email" id="eemail" name="eemail" style="width: 99%;" ><br>
-        <label for="phone">Phone:</label><br>
-        <input type="tel" id="phone" name="phone" style="width: 99%;" ><br>
-        <label for="timeforcall">Time for Call:</label><br>
-        <input type="date" id="timeforcall" name="timeforcall" style="width: 49%;" >
-        <input type="time" id="Time" name="Time" style="width: 49%;"><br>
-        <input type="submit" value="GET A CALL" style="color:whitesmoke;background-color: orange;width: 100%;border: none;"><br>
-
-
-
-
+<body>
+  <header id="main-header" class="bg-success text-white p-4 mb-3">
+    <div class="container">
+        <!--<span>1</span>-->
+      <h1 id="header-title">Item Lister <span style="display:none">123</span></h1>
+    </div>
+  </header>
+  <div class="container">
+   <div id="main" class="card card-body">
+    <h2 class="title1" id="add">Add Items</h2>
+    <form class="form-inline mb-3">
+      <input type="text" class="form-control mr-2">
+      <input type="submit" class="btn btn-dark" value="Submit">
     </form>
-    <script>
-        function details(){
-            const name = document.getElementById("fname").value;
-            console.log(name);
-            const email = document.getElementById("eemail").value;
-            console.log(email);
-            const Phone = document.getElementById("phone").value;
-            console.log(Phone);
-            const date = document.getElementById("timeforcall").value;
-            console.log(date);
-            const time = document.getElementById("Time").value;
-            console.log(time);
-        }
-    </script>
-    
+    <h2 class="title">Items</h2>
+    <ul id="items" class="list-group">
+      <li class="list-group-item">Item 1</li>
+      <li class="list-group-item">Item 2</li>
+      <li class="list-group-item">Item 3</li>
+      <li class="list-group-item">Item 4</li>
+    </ul>
+   </div>
+  </div>
+  <script src="dom.js"></script>
+
 </body>
 </html>

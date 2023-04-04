@@ -28,7 +28,7 @@ var headerTitle = document.getElementById('main-header');
 //console.log(headerTitle.textContent);
 //console.log(headerTitle.innerText);
 //headerTitle.innerHTML = '<h3>Hello</h3>'
-headerTitle.style.borderBottom = 'solid 3px #000';
+
 
 // GETELEMENTBYCLASSNAME //
 
@@ -41,12 +41,22 @@ items[1].style.backgroundColor = 'Yellow';
 
 for(var i = 0; i <items.length;i++){
     items[i].style.backgroundColor = '#f4f4f4';
+    
 }*/
+
+ //  ASSIGNMENT //
+headerTitle.style.borderBottom = 'solid 3px #000';
 var title=document.getElementById('add');
 title.style.color='green';
 title.style.fontWeight = 'bold';
 
 
+     // ASSIGNMENT //
+var items = document.getElementsByClassName('list-group-item');
+items[2].style.backgroundColor="green";
+items[2].style.fontWeight='bold';
 
 
-
+for(var i = 0;i<items.length;i++){
+    items[i].style.fontWeight='bold';
+}
