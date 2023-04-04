@@ -60,3 +60,17 @@ items[2].style.fontWeight='bold';
 for(var i = 0;i<items.length;i++){
     items[i].style.fontWeight='bold';
 }
+
+
+//  ASSIGNMENT //
+
+var items = document.getElementsByClassName('list-group-item');
+for(var i = 0; i <items.length;i++){
+    items[i].style.backgroundColor = 'orange';
+}
+
+var li = document.getElementsByTagName('li');
+for(var i = 0; i <li.length;i++){
+    li[i].style.backgroundColor = 'orange';
+}
+
