@@ -16,9 +16,22 @@
                 const name =event.target.username;
                 const email = event.target.emailId;
                 const phonenumber = event.target.phonenumber;
-                localStorage.setItem('name',name.value);
+                /*localStorage.setItem('name',name.value);
                 localStorage.setItem('email',email.value);
-                localStorage.setItem('ponenumber',phonenumber.value);
+                localStorage.setItem('ponenumber',phonenumber.value);*/
+                let obj = {
+                    Name : name.value,
+                    Email : email.value,
+                    PhoneNumber : phonenumber.value
+
+                };
+            
+            
+            let serialize = JSON.stringify(obj);
+            localStorage.setItem("userDetails",serialize);
+            //let deserialize = JSON.parse(localStorage.getItem(obj));
+            //localStorage.setItem("userDetails",deserialize);
+
             }
         </script>
     </body>
