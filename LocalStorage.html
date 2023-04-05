@@ -9,6 +9,7 @@
             <input id="t" type="tel" name="phonenumber"/>
             <button>Submit</button>
             <ul id="items">
+                
 
             </ul>
 
@@ -42,6 +43,23 @@
                 var li = document.createElement('li');
                 li.textContent = obj.Name+" "+obj.Email+" "+obj.PhoneNumber;
                 itemList.append(li);
+                
+                var deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete';
+                deleteBtn.textContent = "delete";
+                //deleteBtn.appendChild(document.createTextNode('delete'));
+                li.appendChild(deleteBtn);
+                itemList.addEventListener('click', removeItem);
+                function removeItem(e){
+                    if(e.target.classList.contains('delete')){
+                      
+                        var li = e.target.parentElement;
+                        itemList.removeChild(li);
+                        //let ser= JSON.stringify(obj);
+                        localStorage.removeItem("userDetails");
+                        
+                    }
+                  }
                 
 
             }
