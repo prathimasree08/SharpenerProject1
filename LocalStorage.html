@@ -1,13 +1,16 @@
 <html>
     <body>
-        <form onsubmit="saveToLocalStorage(event)">
+        <form id="addForm" onsubmit="saveToLocalStorage(event)">
             <label>Name</label>
-            <input type="text" name="username" required/>
+            <input id="n" type="text" name="username" required/>
             <label>EmailId</label>
-            <input type="email" name="emailId" required/>
+            <input id="e" type="email" name="emailId" required/>
             <label>Phone Number</label>
-            <input type="tel" name="phonenumber"/>
+            <input id="t" type="tel" name="phonenumber"/>
             <button>Submit</button>
+            <ul id="items">
+
+            </ul>
 
         </form>
         <script>
@@ -31,8 +34,20 @@
             localStorage.setItem("userDetails",serialize);
             //let deserialize = JSON.parse(localStorage.getItem(obj));
             //localStorage.setItem("userDetails",deserialize);
+            showUsersOnScreen(obj);
+            
+            }
+            function showUsersOnScreen(obj){
+                var itemList = document.getElementById('items');
+                var li = document.createElement('li');
+                li.textContent = obj.Name+" "+obj.Email+" "+obj.PhoneNumber;
+                itemList.append(li);
+                
 
             }
+            
+                
+            
         </script>
     </body>
 </html>
