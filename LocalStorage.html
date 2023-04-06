@@ -17,22 +17,23 @@
         <script>
             function saveToLocalStorage(event){
                 event.preventDefault();
-                const name =event.target.username;
-                const email = event.target.emailId;
-                const phonenumber = event.target.phonenumber;
+                //const name =event.target.username.value;
+                const name = document.getElementById('n').value;
+                const email = event.target.emailId.value;
+                const phonenumber = event.target.phonenumber.value;
                 /*localStorage.setItem('name',name.value);
                 localStorage.setItem('email',email.value);
                 localStorage.setItem('ponenumber',phonenumber.value);*/
-                let obj = {
-                    Name : name.value,
-                    Email : email.value,
-                    PhoneNumber : phonenumber.value
+                const obj = {
+                    name,
+                    email,
+                    phonenumber
 
-                };
+                }
             
             
-            let serialize = JSON.stringify(obj);
-            localStorage.setItem("userDetails",serialize);
+            //let serialize = JSON.stringify(obj);
+            localStorage.setItem("username",JSON.stringify(obj));
             //let deserialize = JSON.parse(localStorage.getItem(obj));
             //localStorage.setItem("userDetails",deserialize);
             showUsersOnScreen(obj);
@@ -41,7 +42,7 @@
             function showUsersOnScreen(obj){
                 var itemList = document.getElementById('items');
                 var li = document.createElement('li');
-                li.textContent = obj.Name+" "+obj.Email+" "+obj.PhoneNumber;
+                li.textContent = obj.name+" "+obj.email+" "+obj.phonenumber;
                 itemList.append(li);
                 
                 var deleteBtn = document.createElement('button');
@@ -55,6 +56,26 @@
                       
                         var li = e.target.parentElement;
                         itemList.removeChild(li);
+                        //let ser= JSON.stringify(obj);
+                        localStorage.removeItem("userDetails");
+                        
+                    }
+                  }
+
+                  var editBtn = document.createElement('button');
+                editBtn.className = 'edit';
+                editBtn.textContent = "edit";
+                //deleteBtn.appendChild(document.createTextNode('delete'));
+                li.appendChild(editBtn);
+                itemList.addEventListener('click', editItem);
+                function editItem(e){
+                    if(e.target.classList.contains('edit')){
+                      
+                        var li = e.target.parentElement;
+                        itemList.removeChild(li);
+                        document.getElementById('n').value=obj.name;
+                        document.getElementById('e').value=obj.email;
+                        document.getElementById('t').value=obj.phonenumber;
                         //let ser= JSON.stringify(obj);
                         localStorage.removeItem("userDetails");
                         
