@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <title>Integrating Expenses Tracker with Local Storage</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <div id="main" class="card card-body">
+                <form id="addForm" class="form-inline mb-3" onsubmit="saveToLocalStorage(event)">
+                    <div class="row"> 
+                        <div class="col-4">
+                            <label for="ChooseExpense">Choose Expenses</label>
+                            <select class="expense" id="e">
+                                <option>100</option>
+                                <option>200</option>
+                                <option>300</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label for="ChooseDescription">Choose Description</label>
+                            <select class="description" id="d" >
+                                <option>Movie</option>
+                                <option>Vacation</option>
+                                <option>Gaming</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label for="ChooseCategory">Choose Category</label>
+                            <select class="category" id="c" >
+                                <option>Movie</option>
+                                <option>Vacation</option>
+                                <option>Gaming</option>
+                            </select>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <ul id="addexpense">
+                
+
+                            </ul>
+                        </div>
+                    </div>
+                    
+                  </form>
+                  <script>
+                    function saveToLocalStorage(event){
+                        event.preventDefault();
+                        const Expense = document.getElementById('e').value;
+                        const Description = document.getElementById('d').value;
+                        const Category = document.getElementById('c').value;
+                        //console.log(Expense);
+                        //console.log(Description);
+                        //console.log(Category);
+                        const obj = {
+                            Expense,
+                            Description,
+                            Category
+        
+                        }
+                        localStorage.setItem("userdetails",JSON.stringify(obj));
+                        showUsersOnScreen(obj);
+                    }
+                    function showUsersOnScreen(obj){
+                        var itemList = document.getElementById('addexpense');
+                        var li = document.createElement('li');
+                        li.textContent = obj.Expense+" "+obj.Description+" "+obj.Category;
+                        itemList.append(li);
+                        var deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete';
+                        deleteBtn.textContent = "delete";
+                        li.appendChild(deleteBtn);
+                        itemList.addEventListener('click', removeItem);
+                        function removeItem(e){
+                            if(e.target.classList.contains('delete')){
+                                var li = e.target.parentElement;
+                                itemList.removeChild(li);
+                                localStorage.removeItem("userDetails");
+                            }
+                        }
+                        var editBtn = document.createElement('button');
+                        editBtn.className = 'edit';
+                        editBtn.textContent = "edit";
+                        li.appendChild(editBtn);
+                        itemList.addEventListener('click', editItem);
+                        function editItem(e){
+                            if(e.target.classList.contains('edit')){
+                                var li = e.target.parentElement;
+                                itemList.removeChild(li);
+                                document.getElementById('e').value=obj.Expense;
+                                document.getElementById('d').value=obj.Description;
+                                document.getElementById('c').value=obj.Category;
+                                localStorage.removeItem("userDetails");
+                            }
+                        }
+                    }
+                  </script>
+            </div>
+        </div>
+
+    </body>
+</html>
