@@ -14,11 +14,13 @@
             </ul>
 
         </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"></script>
         <script>
             function saveToLocalStorage(event){
                 event.preventDefault();
                 //const name =event.target.username.value;
                 const name = document.getElementById('n').value;
+                //console.log(name);
                 const email = event.target.emailId.value;
                 const phonenumber = event.target.phonenumber.value;
                 /*localStorage.setItem('name',name.value);
@@ -31,12 +33,20 @@
 
                 }
             
-            
+            axios.post("https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData",obj)
+            .then((response) => {
+                console.log(response);
+                showUsersOnScreen(response.data);
+            })
+            .catch((err)=> {
+                document.body.innerHTML = document.body.innerHTML+'<h4>Something went wrong</h4>';
+                console.log(err)
+            })
             //let serialize = JSON.stringify(obj);
-            localStorage.setItem("username",JSON.stringify(obj));
+            //localStorage.setItem("username",JSON.stringify(obj));
             //let deserialize = JSON.parse(localStorage.getItem(obj));
             //localStorage.setItem("userDetails",deserialize);
-            showUsersOnScreen(obj);
+            //showUsersOnScreen(obj);
             
             }
             function showUsersOnScreen(obj){
@@ -75,6 +85,7 @@
                         itemList.removeChild(li);
                         document.getElementById('n').value=obj.name;
                         document.getElementById('e').value=obj.email;
+                        
                         document.getElementById('t').value=obj.phonenumber;
                         //let ser= JSON.stringify(obj);
                         localStorage.removeItem("userDetails");
