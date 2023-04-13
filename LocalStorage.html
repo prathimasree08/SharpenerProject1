@@ -80,7 +80,7 @@
                         itemList.removeChild(li);
                         //let ser= JSON.stringify(obj);
                         //localStorage.removeItem("userDetails");
-                        axios.delete('https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData/6436f30d6246ac03e8532631')
+                        axios.delete(`https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData/${obj._id}`)
                         .then(res => console.log(res)) 
                         .then((err) => console.log(err));
                         
@@ -103,7 +103,10 @@
                         
                         document.getElementById('t').value=obj.phonenumber;
                         //let ser= JSON.stringify(obj);
-                        localStorage.removeItem("userDetails");
+                        //localStorage.removeItem("userDetails");
+                        axios.put(`https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData/${obj._id}`)
+                        .then(res => console.log(res)) 
+                        .then((err) => console.log(err));
                         
                     }
                   }
