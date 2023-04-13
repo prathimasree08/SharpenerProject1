@@ -47,8 +47,20 @@
             //let deserialize = JSON.parse(localStorage.getItem(obj));
             //localStorage.setItem("userDetails",deserialize);
             //showUsersOnScreen(obj);
-            
-            }
+           }
+           window.addEventListener("DOMContentLoaded",()=>{
+            axios.get("https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData")
+            .then((response)=>{
+                console.log(response)
+                for(var i=0;i<response.data.length;i++){
+                    showUsersOnScreen(response.data[i])
+                }
+
+            })
+            .catch((error) =>{
+                console.log(error)
+            })
+           })
             function showUsersOnScreen(obj){
                 var itemList = document.getElementById('items');
                 var li = document.createElement('li');
