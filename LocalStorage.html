@@ -79,7 +79,10 @@
                         var li = e.target.parentElement;
                         itemList.removeChild(li);
                         //let ser= JSON.stringify(obj);
-                        localStorage.removeItem("userDetails");
+                        //localStorage.removeItem("userDetails");
+                        axios.delete('https://crudcrud.com/api/c26e179571d5492d90020304ee7d0ed7/UserData/6436f30d6246ac03e8532631')
+                        .then(res => console.log(res)) 
+                        .then((err) => console.log(err));
                         
                     }
                   }
